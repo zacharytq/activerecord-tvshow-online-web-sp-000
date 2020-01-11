@@ -16,10 +16,14 @@ class Show < ActiveRecord::Base
   end
 
   def self.least_popular_show
-    Show.order(rating: :desc).first
+    Show.order(rating: :asc).first
   end
 
   def self.popular_shows
     Show.where("rating > ?", 5)
+  end
+
+  def self.shows_by_alphabetical_order
+    Show.order(name: :asc)
   end
 end
