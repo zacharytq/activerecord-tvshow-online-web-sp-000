@@ -6,4 +6,8 @@ class Show < ActiveRecord::Base
   def self.most_popular_show
     Show.order(rating: :desc).first
   end
+
+  def self.ratings_sum
+    Show.sum(:ratings)
+  end
 end
