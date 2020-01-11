@@ -18,4 +18,8 @@ class Show < ActiveRecord::Base
   def self.least_popular_show
     Show.order(rating: :desc)
   end
+
+  def self.popular_shows
+    Show.where("rating > ?", 5)
+  end
 end
